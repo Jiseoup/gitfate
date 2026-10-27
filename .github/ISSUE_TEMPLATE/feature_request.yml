@@ -5,7 +5,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        English or Korean is fine. (한국어로 작성해도 괜찮아요.)
+        English or Korean is fine.
         gitfate stays login-free, reads only public GitHub data, and never ranks people. Ideas that need private data or grade developers will likely be declined.
   - type: textarea
     id: problem

@@ -1,0 +1,48 @@
+name: Bug report
+description: Something on a page or a card is broken or looks wrong.
+labels: ["bug", "needs triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! English or Korean is fine. (한국어로 작성해도 괜찮아요.)
+        Please check [open issues](https://github.com/Jiseoup/gitfate/issues) first.
+  - type: input
+    id: url
+    attributes:
+      label: Page or card URL
+      description: The gitfate link where you see the problem.
+      placeholder: https://gitfate.vercel.app/en/your-login
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where is the problem?
+      options:
+        - Reading page
+        - Share card image
+        - README embed
+        - Birth time or time zone
+        - Compatibility
+        - Text or translation
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened?
+      description: Screenshots help a lot, especially for card layout problems.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and device
+      description: Only needed for page layout problems.
+      placeholder: Chrome 140 on Android

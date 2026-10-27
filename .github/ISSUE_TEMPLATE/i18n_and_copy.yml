@@ -1,0 +1,40 @@
+name: Text, translation or new language
+description: Add a language, fix a translation, or suggest new fortune lines.
+labels: ["i18n", "needs triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        All text lives in `locales/`. See [CONTRIBUTING.md](https://github.com/Jiseoup/gitfate/blob/main/CONTRIBUTING.md#adding-a-new-language) for the format and the style guide.
+        Tone: developer-meme humor that laughs with developers, never at them.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of change?
+      options:
+        - New language
+        - Fix or improve an existing translation
+        - New fortune lines or jokes
+        - Almanac (do / avoid) translation
+    validations:
+      required: true
+  - type: input
+    id: language
+    attributes:
+      label: Language
+      placeholder: ja (日本語)
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: The key (for example `daily.band.3`), the current text, and your suggestion.
+    validations:
+      required: true
+  - type: checkboxes
+    id: contribute
+    attributes:
+      label: Contribution
+      options:
+        - label: I'd like to open a pull request for this.

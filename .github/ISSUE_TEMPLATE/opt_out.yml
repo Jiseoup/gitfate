@@ -1,0 +1,24 @@
+name: Opt out (block my username)
+description: Stop gitfate from reading your GitHub username.
+title: "Opt out: @"
+labels: ["opt-out"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        After this is merged, gitfate shows nothing for your username and makes no GitHub requests for it.
+        **Open this issue from the account you want blocked.** Requests for someone else's account are closed.
+  - type: input
+    id: login
+    attributes:
+      label: GitHub username
+      placeholder: your-login
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation
+      options:
+        - label: This is my own account, and I am signed in as it.
+          required: true

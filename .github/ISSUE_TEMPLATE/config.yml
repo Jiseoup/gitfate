@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Wrong birth time or time zone?
+    url: https://github.com/Jiseoup/gitfate#how-your-birth-time-zone-is-decided
+    about: Read how the time zone is picked first. You can always change it with the "Change birth country" picker on your page.

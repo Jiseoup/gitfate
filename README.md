@@ -69,7 +69,7 @@ The page always says which rule was used.
 
 ### Opting out
 
-If you do not want your GitHub username to be read, open an issue asking to be added to the blocklist, or open a pull request that adds your lowercase username to [`data/blocklist.json`](data/blocklist.json).
+If you do not want your GitHub username to be read, open an [opt-out issue](https://github.com/Jiseoup/gitfate/issues/new?template=opt_out.yml) from that account, or open a pull request that adds your lowercase username to [`data/blocklist.json`](data/blocklist.json).
 
 ## Local development
 

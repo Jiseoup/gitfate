@@ -45,8 +45,15 @@ Every language uses the same concept and the same pictures; only the words chang
 
 If you do not want your GitHub username to be read, either:
 
-- open an issue asking to add your username, or
+- open an [opt-out issue](https://github.com/Jiseoup/gitfate/issues/new?template=opt_out.yml) from that account (requests for someone else's account are closed), or
 - open a pull request adding your lowercase username to `data/blocklist.json`.
+
+## Pull requests
+
+- Open an issue first for anything bigger than a small fix, so we can agree on the idea before you build it.
+- PR titles follow [Conventional Commits](https://www.conventionalcommits.org/): `feat:`, `fix:`, `docs:`, `refactor:`, `chore:`, `test:`, optionally with a scope such as `feat(cards):` or `fix(i18n):`.
+- Include before / after screenshots when a page or a share card changes.
+- Keep pull requests focused on one change.
 
 ## Development
 

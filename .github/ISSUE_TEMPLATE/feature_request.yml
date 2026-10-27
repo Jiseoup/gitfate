@@ -1,0 +1,27 @@
+name: Feature request
+description: Suggest a new card, theme, reading or improvement.
+labels: ["enhancement", "needs triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        English or Korean is fine. (한국어로 작성해도 괜찮아요.)
+        gitfate stays login-free, reads only public GitHub data, and never ranks people. Ideas that need private data or grade developers will likely be declined.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What would you like?
+      description: Describe the idea and why it would be fun or useful.
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Example
+      description: A mockup, a sample sentence, or a link to something similar.
+  - type: checkboxes
+    id: contribute
+    attributes:
+      label: Contribution
+      options:
+        - label: I'd like to open a pull request for this.

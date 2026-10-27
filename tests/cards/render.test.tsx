@@ -54,7 +54,7 @@ test('cards use the Dev Sign vocabulary: sign names, roles and zodiac names, wit
   const natal = cardText(<NatalCard r={r} locale="en" avatar={null} />);
   expect(natal).toContain('Ji Seoup is The Garden');
   expect(natal).toContain('The JewelWhite Goat');
-  expect(natal).toContain('@JiSeoupJoined March 4, 2015 · GitHub age 11');
+  expect(natal).toContain('@JiSeoupJoined March 4, 2015GitHub age 11');
   const daily = cardText(<DailyCard r={r} locale="en" avatar={null} />);
   expect(daily).toContain("Today's role");
   expect(daily).toContain('The ancient almanac says');

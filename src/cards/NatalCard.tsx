@@ -52,8 +52,12 @@ export function NatalCard({ r, locale, avatar }: { r: OkReading; locale: string;
             {name}
           </Text>
           <Text style={{ marginTop: 4, fontSize: 24, color: MUTED }}>{`@${login}`}</Text>
+          {/* Two lines: "Joined September 3, 2011 · GitHub age 15" does not fit the column in English. */}
           <Text style={{ marginTop: 6, fontSize: 19, color: MUTED }}>
-            {`${t('ui.joined', { date: formatLongDate(locale, r.bornAt.slice(0, 10)) })} · ${t('ui.githubAge', { age: fullYears(r.bornAt.slice(0, 10), r.daily.date) })}`}
+            {t('ui.joined', { date: formatLongDate(locale, r.bornAt.slice(0, 10)) })}
+          </Text>
+          <Text style={{ fontSize: 19, color: MUTED }}>
+            {t('ui.githubAge', { age: fullYears(r.bornAt.slice(0, 10), r.daily.date) })}
           </Text>
           <Row style={{ marginTop: 18, alignItems: 'center', gap: 10 }}>
             <div

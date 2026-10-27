@@ -1,0 +1,86 @@
+{
+  "disclaimer": "Just for fun. It says nothing about your skills as a developer.",
+  "nav": {
+    "home": "Home",
+    "github": "GitHub",
+    "language": "Language"
+  },
+  "home": {
+    "inputLabel": "GitHub username",
+    "submit": "Read my fate",
+    "headline": "Your dev destiny was written the second you signed up for GitHub",
+    "lead": "We take your signup time as your birth time, read it with the traditional Korean almanac, and tell you which of ten Dev Signs you are, in developer memes. No login, no install. Just a username.",
+    "placeholder": "e.g. torvalds",
+    "examples": "Peek at some famous developers' Signs"
+  },
+  "section": {
+    "natal": "Birth chart",
+    "daily": "Today's fortune",
+    "yearly": "This year",
+    "compat": "Dev compatibility"
+  },
+  "tz": {
+    "source": {
+      "param": "Based on the time zone you picked ({{label}})",
+      "early-commits": "Based on the time zone of your first commits ({{label}})",
+      "recent-commits": "Based on the time zone of your recent commits ({{label}})",
+      "location": "Based on your profile location's time zone ({{label}})",
+      "default": "No time zone clues found, so this reading uses {{label}}"
+    },
+    "change": "Change birth country",
+    "city": "Pick a city",
+    "suggest": "Your profile says {{location}}. Want to read it in that time zone instead?"
+  },
+  "share": {
+    "copy": "Copy link",
+    "copied": "Copied!",
+    "copyFailed": "Couldn't copy. Please copy the link from the address bar.",
+    "download": "Save card image",
+    "x": "Share on X"
+  },
+  "error": {
+    "notFound": "We couldn't find that GitHub user. 404: the stars are aligned, but nobody's home. Mind checking the spelling?",
+    "blocked": "This account's reading isn't available.",
+    "rateLimited": "GitHub asked us to take a breather (API rate limit). Try again in a bit. Your destiny isn't going anywhere.",
+    "activityUnavailable": "We couldn't load the activity data, so a few parts are hidden. Your chart and today's fortune are all here.",
+    "invalidLogin": "That doesn't look like a GitHub username. Letters, numbers and hyphens only."
+  },
+  "compat": {
+    "placeholder": "Their GitHub username",
+    "cta": "Check compatibility"
+  },
+  "stars": {
+    "deploy": "Deploy luck",
+    "debug": "Debug luck",
+    "review": "Code review luck",
+    "merge": "Merge luck"
+  },
+  "role": {
+    "today": "Today's role",
+    "year": "This year's role"
+  },
+  "almanac": {
+    "header": "The ancient almanac says"
+  },
+  "yiji": {
+    "do": "Good for",
+    "dont": "Avoid"
+  },
+  "lucky": {
+    "color": "Lucky color",
+    "language": "Lucky language",
+    "hour": "Lucky hours",
+    "item": "Lucky item",
+    "hourName": "{{animal}} hour"
+  },
+  "month": {
+    "label": "Month {{month}} ({{start}}–{{end}})"
+  },
+  "chart": {
+    "luck": "Luck",
+    "commits": "Contributions"
+  },
+  "born": "Developer born: {{datetime}} ({{label}})",
+  "joined": "Joined {{date}}",
+  "githubAge": "GitHub age {{age}}"
+}

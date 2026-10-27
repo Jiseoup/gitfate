@@ -1,0 +1,52 @@
+{
+  "band": {
+    "0": [
+      "{{a}} and {{b}}: {{score}} points. Different as tabs and spaces, and that's exactly why you can cover each other's blind spots.",
+      "{{score}} points. Like two devs on different operating systems. Cross-platform is always hard, which means there's a lot to learn from each other.",
+      "{{a}} and {{b}} score {{score}}. Expect a few merge conflicts, but code that survives a conflict is the sturdiest code there is."
+    ],
+    "1": [
+      "{{a}} and {{b}}: {{score}} points. Review threads may run long at first, but give it a few rounds and you'll find your rhythm.",
+      "A {{score}}-point match. Agree on a commit convention first and watch your luck climb.",
+      "{{a}} and {{b}} score {{score}}. Dark mode meets light mode: different tastes, same codebase, no problem."
+    ],
+    "2": [
+      "{{a}} and {{b}}: {{score}} points. A solid working pair. Together, a sprint is no sweat.",
+      "{{score}} points, a steady match. You can merge each other's PRs with confidence.",
+      "{{a}} and {{b}} score {{score}}. No big clashes in sight. You could share a repo for years."
+    ],
+    "3": [
+      "{{a}} and {{b}}: {{score}} points! You get each other's intent without explaining it, so reviews fly by.",
+      "A {{score}}-point match. Pair up and even your keyboard handoffs will be perfectly timed.",
+      "{{a}} and {{b}} score {{score}}. Before one of you finishes saying \"there's a bug,\" the other already has the logs open."
+    ],
+    "4": [
+      "{{a}} and {{b}}: {{score}} points! A match made in the cloud. Even merge conflicts will feel like they resolve themselves.",
+      "{{score}} points. This is a destined pair. Any repo you two build, CI might just turn green out of respect.",
+      "{{a}} and {{b}} score {{score}}. Together, \"works on my machine\" becomes \"works on our machines.\""
+    ]
+  },
+  "flow": {
+    "generate": [
+      "{{giver}} sketches the outline and {{receiver}} brings it to life. Let {{giver}} write the first draft and {{receiver}} review and grow it.",
+      "{{giver}}'s energy feeds {{receiver}}'s. Put {{giver}} on design and {{receiver}} on polish and the demo."
+    ],
+    "control": [
+      "{{giver}} keeps {{receiver}}'s energy in check. Let {{receiver}} write freely and {{giver}} review carefully: gas pedal, meet brakes.",
+      "{{receiver}} is the idea engine, {{giver}} is the quality gate. Best setup: {{receiver}} opens the PR, {{giver}} holds the Approve button."
+    ],
+    "same": [
+      "{{a}} and {{b}} share the same element. A mirror pair where each reviews the other, so take turns writing and reviewing.",
+      "{{a}} and {{b}} are cut from the same cloth. You move fast because you think alike, so now and then pull in a third reviewer to check the blind spots."
+    ]
+  },
+  "sub": {
+    "pair": "Pair programming",
+    "review": "Code review",
+    "incident": "Fighting fires together"
+  },
+  "shared": {
+    "some": "You both speak {{languages}}. No translator needed in code review.",
+    "none": "No languages in common. Each other's code may look foreign, but that's a built-in learning opportunity."
+  }
+}

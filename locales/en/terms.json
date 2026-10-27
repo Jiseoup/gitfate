@@ -1,0 +1,127 @@
+{
+  "stem": {
+    "甲": "Yang Wood",
+    "乙": "Yin Wood",
+    "丙": "Yang Fire",
+    "丁": "Yin Fire",
+    "戊": "Yang Earth",
+    "己": "Yin Earth",
+    "庚": "Yang Metal",
+    "辛": "Yin Metal",
+    "壬": "Yang Water",
+    "癸": "Yin Water"
+  },
+  "sign": {
+    "甲": "The Oak",
+    "乙": "The Vine",
+    "丙": "The Sun",
+    "丁": "The Candle",
+    "戊": "The Mountain",
+    "己": "The Garden",
+    "庚": "The Blade",
+    "辛": "The Jewel",
+    "壬": "The Ocean",
+    "癸": "The Rain"
+  },
+  "branch": {
+    "子": "Rat",
+    "丑": "Ox",
+    "寅": "Tiger",
+    "卯": "Rabbit",
+    "辰": "Dragon",
+    "巳": "Snake",
+    "午": "Horse",
+    "未": "Goat",
+    "申": "Monkey",
+    "酉": "Rooster",
+    "戌": "Dog",
+    "亥": "Pig"
+  },
+  "element": {
+    "wood": "Wood",
+    "fire": "Fire",
+    "earth": "Earth",
+    "metal": "Metal",
+    "water": "Water"
+  },
+  "tenGod": {
+    "bijian": "The Pair Programmer",
+    "jiecai": "The Merge Conflict",
+    "shishen": "The README Bard",
+    "shangguan": "The Sharp Reviewer",
+    "piancai": "The Side-Project Explorer",
+    "zhengcai": "The Steady Committer",
+    "qisha": "The Incident Commander",
+    "zhengguan": "The Test Guardian",
+    "pianyin": "The Tech Scout",
+    "zhengyin": "The Lifelong Learner"
+  },
+  "tenGodSaju": {
+    "bijian": "Companion",
+    "jiecai": "Rob Wealth",
+    "shishen": "Eating God",
+    "shangguan": "Hurting Officer",
+    "piancai": "Indirect Wealth",
+    "zhengcai": "Direct Wealth",
+    "qisha": "Seven Killings",
+    "zhengguan": "Direct Officer",
+    "pianyin": "Indirect Resource",
+    "zhengyin": "Direct Resource"
+  },
+  "zodiac": {
+    "rat": "Rat",
+    "ox": "Ox",
+    "tiger": "Tiger",
+    "rabbit": "Rabbit",
+    "dragon": "Dragon",
+    "snake": "Snake",
+    "horse": "Horse",
+    "goat": "Goat",
+    "monkey": "Monkey",
+    "rooster": "Rooster",
+    "dog": "Dog",
+    "pig": "Pig"
+  },
+  "animal": {
+    "rat": "Rat",
+    "ox": "Ox",
+    "tiger": "Tiger",
+    "rabbit": "Rabbit",
+    "dragon": "Dragon",
+    "snake": "Snake",
+    "horse": "Horse",
+    "goat": "Goat",
+    "monkey": "Monkey",
+    "rooster": "Rooster",
+    "dog": "Dog",
+    "pig": "Pig"
+  },
+  "zodiacColor": {
+    "wood": "Green",
+    "fire": "Red",
+    "earth": "Yellow",
+    "metal": "White",
+    "water": "Black"
+  },
+  "pillarName": "{{color}} {{animal}}",
+  "color": {
+    "wood": "Green",
+    "fire": "Red",
+    "earth": "Yellow",
+    "metal": "White",
+    "water": "Black"
+  },
+  "pillar": {
+    "year": "Year pillar",
+    "month": "Month pillar",
+    "day": "Day pillar",
+    "hour": "Hour pillar"
+  },
+  "tooltip": {
+    "saju": "Saju, the Korean Four Pillars, reads the year, month, day and hour of your birth as four pillars. gitfate treats the moment you signed up for GitHub as the moment your developer self was born, and shows each pillar as a Dev Sign and a zodiac animal.",
+    "sign": "There are ten Dev Signs, from The Oak to The Rain. Yours comes from the stem of your GitHub birth day, which saju calls the Day Master. Like a star sign, it never changes.",
+    "tenGod": "Your role is how today's (or this year's) energy relates to your Sign, in ten flavors. Saju calls them the Ten Gods. It tells you whether the day shows up as a teammate, a deadline, or a pager alert.",
+    "elements": "The five elements are Wood, Fire, Earth, Metal and Water. They feed and check each other to stay in balance. gitfate counts the elements of the eight characters on your four pillars only, not the hidden ones tucked inside them.",
+    "ipchun": "In the traditional almanac the year doesn't turn on January 1 but at Lichun, the start of spring (around February 4). So in January you still get last year's reading. It's not a bug, it's tradition."
+  }
+}

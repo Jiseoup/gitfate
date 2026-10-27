@@ -1,0 +1,112 @@
+{
+  "headline": "{{name}} is {{sign}}",
+  "archetype": {
+    "甲": {
+      "name": "Lays the foundation everyone builds on",
+      "desc": [
+        "{{name}} is a great oak: once a project takes root, they grow it all the way up. If a design they sketched still holds three years later, that's not luck. That's The Oak.",
+        "{{name}}'s repos have a trunk you can lean on. They keep main sturdy so everyone else can branch out without the whole tree falling over.",
+        "Steady and straight, {{name}} asks \"why is it built this way?\" before chasing this week's hot framework. That one question keeps the whole team from getting lost."
+      ]
+    },
+    "乙": {
+      "name": "Wraps around any legacy and thrives",
+      "desc": [
+        "{{name}} is a vine: give them a wall and they'll climb it. Frontend, backend, infra, whatever they grab onto, they find a way up.",
+        "Soft but stubborn, {{name}} can bloom in the cracks of a legacy codebase. They're the rare person who actually comes back to \"TODO: fix later.\"",
+        "{{name}} is great at stitching things together, people and systems alike. The API docs can be a mess and they'll still get it wired up. Classic Vine."
+      ]
+    },
+    "丙": {
+      "name": "Ships loud, demos bright",
+      "desc": [
+        "When {{name}} joins the channel, the whole Slack gets brighter. Saving a gloomy retro and saying hi to the new hire first? That's The Sun at work.",
+        "{{name}}'s enthusiasm is contagious. One \"ooh, this could be fun\" and the whole team is suddenly in hackathon mode.",
+        "Bright and open, {{name}} shines brightest at first impressions: the live demo, the lightning talk, the first paragraph of a README."
+      ]
+    },
+    "丁": {
+      "name": "Burns quietly through the night shift",
+      "desc": [
+        "{{name}} is the candle still burning after everyone's logged off, chasing a bug by one small light. That 2 a.m. \"FOUND IT!\" is usually The Candle talking.",
+        "Quiet but relentless, {{name}} will hold a light up to every log line and every frame of the stack trace until the truth comes out.",
+        "{{name}}'s flame isn't huge, but it never goes out. They're the one who sits down to look at your stuck problem with you, which is why they often end up as the team's rubber duck."
+      ]
+    },
+    "戊": {
+      "name": "Unshakable, like a monolith in prod",
+      "desc": [
+        "{{name}} is a mountain: traffic spikes come and go and they don't budge. Four-nines uptime comes from charts like this one.",
+        "Dependable {{name}} is the walking internal wiki, the person everyone means when they say \"just ask them, they'll know.\"",
+        "{{name}} doesn't rush. But a database schema they lay down is still standing years later. The Mountain even runs migrations with gravitas."
+      ]
+    },
+    "己": {
+      "name": "Grows anything, maintains everything",
+      "desc": [
+        "{{name}} is a garden that grows every issue and every first PR with care. No chart on earth suits a \"good first issue\" label better.",
+        "Gentle and attentive, {{name}} is the maintainer who replies \"thank you!\" to a one-character typo fix. That's Garden energy.",
+        "{{name}}'s repos grow a little every season. Less about flashy releases, more about patient upkeep that makes the whole ecosystem richer."
+      ]
+    },
+    "庚": {
+      "name": "Deletes code without blinking",
+      "desc": [
+        "{{name}} sees a 1,000-line function and reaches for the blade. Their deletion commits are more satisfying than their own feature commits.",
+        "Decisive {{name}} can end an hour-long meeting with one line: \"Okay, so what do we delete?\"",
+        "{{name}}'s code reviews are short and precise. No sugarcoating, and that one comment quietly prevents an outage. The Blade cuts to protect the team."
+      ]
+    },
+    "辛": {
+      "name": "Polishes until it sparkles",
+      "desc": [
+        "{{name}} is a jewel cutter who won't let a 1px misalignment slide. All that care adds up to products that feel weirdly nice to use.",
+        "When {{name}} spends ten minutes naming one variable, that's not procrastination, that's craftsmanship. Future teammates will thank them.",
+        "{{name}}'s commit messages sparkle. Clean diffs, tidy lint, a folder structure you could frame: it's all Jewel work."
+      ]
+    },
+    "壬": {
+      "name": "Scales to hold everything",
+      "desc": [
+        "{{name}} is an ocean who sees the currents before the individual functions. They carry a mental map of where every byte comes from and where it flows.",
+        "Thinking at scale comes naturally to {{name}}. They're always the first in the room to ask, \"Cool, but what happens at 100x users?\"",
+        "{{name}} dives headfirst into new tech. Queues, streams, distributed systems, anything that flows like water fits The Ocean perfectly."
+      ]
+    },
+    "癸": {
+      "name": "Quietly fixes what nobody noticed",
+      "desc": [
+        "{{name}} is a soft rain that soaks in without a sound. If a bug got fixed and nobody knows who did it, it was probably someone with this chart.",
+        "Observant {{name}} is the one quietly adding that edge case nobody had spotted yet to the test suite.",
+        "{{name}}'s help seeps in without fanfare: one review comment, one line of docs, and the whole team's flow gets smoother. That's how The Rain works."
+      ]
+    }
+  },
+  "elements": {
+    "strongest": [
+      "Your chart leans hardest on {{element}}. That's its default theme, always on, like dark mode.",
+      "Your chart's main branch is built on {{element}}. Every other element is just a feature branch merging into it."
+    ],
+    "missing": [
+      "Your chart runs lightest on {{element}}. No worries: you can top it up with your lucky color and language. Think of it as adding a dependency.",
+      "Your chart is quiet on {{element}}. That's not a bug, it's a feature that's only partly shipped. Today's lucky item is sending a patch."
+    ]
+  },
+  "language": {
+    "compensating": [
+      "Your chart could use more {{element}}, but your {{language}} code is already filling the gap. You've been patching your own fate without even knowing it.",
+      "{{element}} is weak in your chart, yet {{language}} is holding that spot down in your repos. That's basically a hotfix for destiny.",
+      "You were born light on {{element}}, but {{language}} keeps topping it up. Fate and your tech stack are pair programming, and it's beautiful."
+    ],
+    "alsoMissing": [
+      "Your chart is low on {{element}}, and so is your code: barely any {{element}} languages in sight. How about a quick Hello World in your lucky language, {{language}}?",
+      "{{element}} is quiet in both your chart and your repos. One spoonful of {{language}} could balance out your elements.",
+      "Your chart could use more {{element}}, and it hasn't shown up much in your code either. Start your next side project in {{language}} and the stars approve."
+    ],
+    "noData": [
+      "No public language data to read yet, so your code's elements remain a mystery. To boost the {{element}} your chart runs light on, your lucky language is {{language}}.",
+      "Your repos' language data is keeping quiet (markup like HTML, CSS and Markdown doesn't count), so the language reading will have to wait. For the {{element}} your chart could use more of, {{language}} is a great match.",
+      "There isn't enough language data for a reading yet. If you ever want more {{element}} in your life, try a spoonful of {{language}}."
+    ]
+  }
+}

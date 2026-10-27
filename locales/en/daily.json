@@ -1,0 +1,146 @@
+{
+  "tenGod": {
+    "bijian": [
+      "{{name}}, someone out there is thinking exactly what you're thinking today. Pair up and every keyboard handoff will end in \"that's what I was gonna say!\"",
+      "The stars favor two over one today. Stuck on something, {{name}}? Skip the brooding and share your screen.",
+      "{{name}}, your code and a teammate's look like mirror images today. You may be fixing the same bug in parallel, so call dibs in Slack first.",
+      "Strong teammate energy is rising. {{name}}, when you ask for a review, expect an \"LGTM\" plus suggestions that actually help.",
+      "A Pair Programmer day: lots of people on your side. {{name}}, expect a long row of +1 reactions under whatever you propose."
+    ],
+    "jiecai": [
+      "{{name}}, someone may be poking at your branch today. Your lucky charm: git pull before you touch anything.",
+      "Merge conflicts are in the air. {{name}}, if you see <<<<<<< HEAD, stay calm. Today's trial can be passed with a rebase.",
+      "Someone else is eyeing the same file today. {{name}}, small PRs beat one giant PR. That's your survival strategy.",
+      "The temptation to force push is strong today. {{name}}, if your fingers start typing --force, take three deep breaths. Your guardian spirit is --force-with-lease.",
+      "A Merge Conflict day: yours and theirs blur easily. {{name}}, drop a note in the team channel before you edit that shared config. Consider it a ward against bad luck."
+    ],
+    "shishen": [
+      "The words flow freely today. {{name}}, write that README you've been putting off and future you will bow in gratitude.",
+      "Creative energy overflows. Component names, CLI flags, a fresh commit convention: {{name}}, your idea well isn't running dry today.",
+      "{{name}}, your code comments read like poetry today. Just maybe hold off on \"no idea why this works\" for one day.",
+      "A README Bard day, with a side of good food! {{name}}, the power to pick the team lunch spot may fall to you. Bonus: the docs practically write themselves.",
+      "Making things feels great today. {{name}}, it's a fine day to write a CHANGELOG that reads like a story."
+    ],
+    "shangguan": [
+      "The urge to refactor is off the charts. {{name}}, run the tests first so today's blade doesn't cut you.",
+      "Your eyes are sharp today, {{name}}. You'll pinpoint the hidden issue in code review. Add a kind word at the end and the stars smile even wider.",
+      "Feeling like rewriting the whole thing? {{name}}, one commit at a time. That's today's prescription.",
+      "{{name}}, your words carry extra weight today. You'll land the key point in that tech debate, so make sure someone's taking notes.",
+      "Sharp Reviewer energy wants to break the rules. {{name}}, if you're itching to disable the linter... today you're allowed exactly one eslint-disable-next-line."
+    ],
+    "piancai": [
+      "Ideas are pouring in today. {{name}}, write them down before you buy the domain. Seriously.",
+      "Side project luck is in full bloom! {{name}}, the repo you create today has star potential. At least one star, anyway: yours.",
+      "Unexpected opportunities are rolling your way. {{name}}, don't scroll past that hackathon announcement or that oddly fun open-source issue.",
+      "{{name}}, \"this would make a killer app\" will cross your mind at least three times today. One of them might actually be right.",
+      "A Side-Project Explorer day, and it smells like money. {{name}}, go ahead and daydream about adding a checkout button to your side project."
+    ],
+    "zhengcai": [
+      "Small commits add up to a green lawn today. {{name}}, closing one tiny issue is your great fortune.",
+      "Consistency pays off today. {{name}}, one commit from you turns one more square of your contribution graph green.",
+      "{{name}}, today is for small wins, not epics. Typo fixes, dependency bumps and log cleanups all go smoothly.",
+      "Steady Committer energy is coming in. {{name}}, you'll practically hear the checkmarks landing on your TODO list.",
+      "A great day to wake that issue sleeping at the bottom of the backlog. {{name}}, you've never felt so proud typing \"Closes #42.\""
+    ],
+    "qisha": [
+      "A surprise page could come in today. {{name}}, charge your phone and your coffee in advance.",
+      "Hotfix energy is in the air. {{name}}, don't panic, start with the logs. The outage you tame today becomes tomorrow's legendary retro story.",
+      "{{name}}, a \"hey, got a sec?\" is headed your way. It's usually about the servers. Stay calm and locate the rollback button first.",
+      "An Incident Commander day brings heavy pressure, but that's also the energy that shines in a crisis. {{name}}, you'll be the calmest one in the incident channel today.",
+      "Today is firefighting day. Even so, {{name}}, skip the Friday afternoon deploy and this energy passes without a scratch."
+    ],
+    "zhengguan": [
+      "The rules have your back today. {{name}}, write one more test and that test will catch a bug today.",
+      "Convention energy runs strong. {{name}}, keep your commits tidy with feat: and fix: and the whole day falls into place.",
+      "CI answers with green today. {{name}}, the rule you propose will get an \"oh, that's actually nice\" from the team.",
+      "An orderly Test Guardian day. {{name}}, clear out those lint warnings you've been ignoring and your mind clears with them.",
+      "{{name}}, trust in you is growing today. A responsible role, like code owner or designated reviewer, may come your way."
+    ],
+    "pianyin": [
+      "Curiosity goes into overdrive today. {{name}}, open the docs for that new framework and you'll look up to find it's 3 a.m.",
+      "The road less traveled is calling. {{name}}, try printing Hello World in a language you've never even heard of.",
+      "Tech Scout energy will have you reading the \"Advanced\" section of the docs. {{name}}, you're due to find treasure hidden in a footnote.",
+      "{{name}}, your browser is on track to pass 40 open tabs today. For once, the \"Read later\" bookmark folder actually gets read.",
+      "A clever workaround is about to pop into your head. {{name}}, leave a comment on that bit of wizardry so future you can decode it."
+    ],
+    "zhengyin": [
+      "Learning luck is flowing in. {{name}}, one review comment you get today could be worth a year of experience.",
+      "Lifelong Learner energy brings good teachers. {{name}}, don't struggle alone. Today, asking questions is the luckiest move.",
+      "Talks, books and conference videos sink right in today. {{name}}, pull one thing off your Watch Later list.",
+      "{{name}}, a helpful stranger is hiding in a Stack Overflow thread for you. Skip the accepted answer and read the one right below it.",
+      "Backup is on the way today. {{name}}, a senior dev's \"oh yeah, I hit that too\" is going to save your whole day."
+    ]
+  },
+  "branch": {
+    "liuhe": [
+      "Today's energy clicks with your chart like a matched pair. Everything lines up, and your PR may get approved on the first try.",
+      "A harmony day: like puzzle pieces snapping together, that integration you dreaded just... works."
+    ],
+    "sanhe": [
+      "Today's energy teams up with your chart. Three heads make a team, and a quick meeting makes a big decision.",
+      "A day when the energies line up: frontend, backend and design are finally drawing the same picture."
+    ],
+    "chong": [
+      "Today's energy clashes head-on with your chart. Plans wobble easily, so give any important deploy some buffer time.",
+      "A clash day: opinions bump into each other. Reread your review comments once more and soften the edges before you hit send."
+    ],
+    "xing": [
+      "Today's energy rubs against your chart a little. Small config slips snowball, so check your .env twice.",
+      "A day when it's easy to be too hard on yourself. If the tests go red, tell yourself \"good effort\" anyway."
+    ],
+    "none": [
+      "Today's energy has no special harmony or clash with your chart. A day that runs fine on the default settings.",
+      "A quiet day. No outside variables, just you coding at your own pace."
+    ]
+  },
+  "band": {
+    "0": [
+      "A lie-low kind of day. Push the big deploy to tomorrow and git stash your luck for safekeeping.",
+      "Your luck is in maintenance mode. Today is for tests over features, and reviewing over experimenting."
+    ],
+    "1": [
+      "A calm day. Don't push it and things will merge just fine.",
+      "Looks ordinary, but there's a small trap somewhere. One more look at the diff before you commit is all it takes."
+    ],
+    "2": [
+      "Decent flow today. You can close at least one of those issues you've been putting off.",
+      "A tailwind is blowing. Tests mostly green, coffee mostly warm."
+    ],
+    "3": [
+      "Good energy today! One of those rare days when the code does exactly what you meant it to.",
+      "An auspicious day. Reviewers will show up suspiciously fast on the PR you open today."
+    ],
+    "4": [
+      "Great fortune! The rare day when \"works on my machine\" becomes \"works on every machine.\"",
+      "Your luck is maxed out. Even a Friday deploy would... no. Still don't deploy on Friday. Everything else, go for it."
+    ]
+  },
+  "meme": [
+    "Ctrl+Z",
+    "A rubber duck on your desk",
+    "git stash",
+    "One perfectly placed console.log",
+    "An extra-shot iced americano",
+    "Dark mode",
+    "The clack of clicky blue switches",
+    "A Stack Overflow answer from 2013",
+    "A green CI badge",
+    "One really well-named variable",
+    "Turning it off and on again",
+    "rm -rf node_modules",
+    "A sticky note with the Vim exit command",
+    "sudo (use responsibly)",
+    "That one missing semicolon, finally found",
+    "A second monitor",
+    "Noise-canceling headphones",
+    "A TODO comment you actually finish",
+    "git commit --amend",
+    "One fresh green square on your contribution graph",
+    "Slack on Do Not Disturb",
+    "A 10-minute walk after lunch"
+  ],
+  "firstCommit": [
+    "Your contribution graph is a fresh, empty lawn. The stars say there's no better day to plant your first commit.",
+    "Your activity log may be empty, but your fate is already committed. One git init and the luck starts moving."
+  ]
+}

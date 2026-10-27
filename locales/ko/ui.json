@@ -1,0 +1,86 @@
+{
+  "disclaimer": "재미로 보는 운세입니다. 개발 실력과는 아무 관련이 없어요.",
+  "nav": {
+    "home": "홈",
+    "github": "GitHub",
+    "language": "언어"
+  },
+  "home": {
+    "inputLabel": "GitHub 아이디",
+    "submit": "내 사주 보기",
+    "headline": "GitHub에 가입한 그 순간, 개발자 팔자가 정해졌다",
+    "lead": "가입 시각을 생년월일시로 삼아 진짜 만세력으로 사주를 풀고, 열 가지 개발자 유형과 개발 밈으로 번역해 드려요. 로그인도 설치도 필요 없어요. 아이디 하나면 끝.",
+    "placeholder": "예: torvalds",
+    "examples": "유명 개발자들의 사주 구경하기"
+  },
+  "section": {
+    "natal": "타고난 사주",
+    "daily": "오늘의 운세",
+    "yearly": "올해 운세",
+    "compat": "개발 궁합"
+  },
+  "tz": {
+    "source": {
+      "param": "직접 고른 시간대({{label}})로 풀이했어요",
+      "early-commits": "가입 무렵 첫 커밋들의 시간대({{label}})로 풀이했어요",
+      "recent-commits": "최근 커밋들의 시간대({{label}})로 풀이했어요",
+      "location": "프로필 위치의 시간대({{label}})로 풀이했어요",
+      "default": "시간대 단서가 없어서 {{label}} 기준으로 풀이했어요"
+    },
+    "change": "출생 국가 변경",
+    "city": "도시 선택",
+    "suggest": "프로필 위치는 {{location}}. 그 시간대로 다시 볼까요?"
+  },
+  "share": {
+    "copy": "링크 복사",
+    "copied": "복사됐어요!",
+    "copyFailed": "복사하지 못했어요. 주소창의 링크를 직접 복사해 주세요.",
+    "download": "카드 이미지 저장",
+    "x": "X에 공유"
+  },
+  "error": {
+    "notFound": "그런 GitHub 아이디를 찾지 못했어요. 404 — 사주는 준비됐는데 주인공이 없네요. 철자를 한 번만 확인해 주세요.",
+    "blocked": "이 계정의 사주는 보여 드릴 수 없어요.",
+    "rateLimited": "GitHub가 잠깐 쉬어 가재요(API 한도 초과). 잠시 후 다시 와 주세요. 운명은 도망가지 않아요.",
+    "activityUnavailable": "활동 기록을 불러오지 못해서 일부 내용은 숨겼어요. 사주와 오늘의 운세는 그대로예요.",
+    "invalidLogin": "GitHub 아이디 형식이 아니에요. 영문, 숫자, 하이픈(-)만 쓸 수 있어요."
+  },
+  "compat": {
+    "placeholder": "상대 GitHub 아이디",
+    "cta": "궁합 보기"
+  },
+  "stars": {
+    "deploy": "배포운",
+    "debug": "디버깅운",
+    "review": "코드리뷰운",
+    "merge": "머지운"
+  },
+  "role": {
+    "today": "오늘의 역할",
+    "year": "올해의 역할"
+  },
+  "almanac": {
+    "header": "고대 달력 가라사대"
+  },
+  "yiji": {
+    "do": "하면 좋은 일",
+    "dont": "피할 일"
+  },
+  "lucky": {
+    "color": "행운의 색",
+    "language": "행운의 언어",
+    "hour": "행운의 시간",
+    "item": "행운의 아이템",
+    "hourName": "{{animal}} 시"
+  },
+  "month": {
+    "label": "{{month}}월 ({{start}}~{{end}})"
+  },
+  "chart": {
+    "luck": "운세",
+    "commits": "실제 기여"
+  },
+  "born": "개발자 탄생: {{datetime}} ({{label}})",
+  "joined": "{{date}} 가입",
+  "githubAge": "깃허브 나이 {{age}}살"
+}

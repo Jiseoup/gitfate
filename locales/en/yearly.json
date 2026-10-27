@@ -1,0 +1,95 @@
+{
+  "title": "{{year}}: Year of {{sign}} (from {{start}})",
+  "theme": {
+    "bijian": [
+      "A year of more people at your side. That solo project might finally get a co-maintainer.",
+      "A shoulder-to-shoulder year. Pair programming and study groups are this year's growth engine.",
+      "Pair Programmer years bring people like you. The coworker using the exact same editor theme could be a friend for years."
+    ],
+    "jiecai": [
+      "Competition and collaboration get tangled this year. The more merge conflicts you resolve together, the stronger the team gets.",
+      "A year to guard what's yours. Set up CODEOWNERS and branch protection rules now and you'll thank yourself later.",
+      "In a Merge Conflict year, who merged first matters more than who thought of it first. Ship small PRs, often."
+    ],
+    "shishen": [
+      "A year when your voice blooms. Blog posts, talks and docs are all great ways to introduce your code to the world.",
+      "The joy of making things grows this year. A project you built \"just because it was fun\" could become your signature work.",
+      "README Bard years bring breathing room. Skip the burnout and finish the year at a steady, sustainable pace."
+    ],
+    "shangguan": [
+      "A year full of things you want to change. It's a good time to pitch that big refactor or stack migration.",
+      "Sharp insight shines this year. Words get sharp too, though, so add an emoji to every review comment.",
+      "In a Sharp Reviewer year, rule-breaking ideas get a fair hearing. \"Let's rewrite it in Rust\" might actually be taken seriously."
+    ],
+    "piancai": [
+      "A wide-open year of new chances: side projects, outside collaborations, an offer you didn't see coming.",
+      "Side-Project Explorer years turn adventures into harvests. Dip a toe into a hackathon or an open-source project outside your usual lane.",
+      "A year when an idea could turn into something real. Expect to hover over the \"buy domain\" button more than usual."
+    ],
+    "zhengcai": [
+      "A year when consistency compounds. Your contribution graph should stay evenly green all year long.",
+      "In a Steady Committer year, daily small commits beat one big splash. Build a routine and you'll surprise yourself by December.",
+      "A steady harvest year. A great time to pay down that tech debt, one installment at a time."
+    ],
+    "qisha": [
+      "A year of challenges. Gnarly incidents and tight deadlines may show up, but you'll remember it as the year you grew the most.",
+      "Incident Commander years forge you under pressure. Polish your on-call runbook early and the whole year gets easier.",
+      "Expect a few surprise pages this year. Keep backups and monitoring in shape and every crisis becomes a chance."
+    ],
+    "zhengguan": [
+      "A year of order and trust. You may end up writing the team's conventions, or leading the way.",
+      "In a Test Guardian year, tests and docs protect you. Nail the fundamentals and the year runs smoothly.",
+      "A year of growing responsibility. Your name might land in the CODEOWNERS file."
+    ],
+    "pianyin": [
+      "A year to fall deep into new tech. That strange language you dig into now could be your secret weapon a few years out.",
+      "Tech Scout years make the road less traveled fun. Compilers, kernels, odd little DSLs: the deep end is calling.",
+      "Your intuition sharpens this year. You'll find yourself reading between the lines of the official docs."
+    ],
+    "zhengyin": [
+      "A year when learning and help come to you. Strong odds of meeting a great mentor, or a book that changes how you code.",
+      "In a Lifelong Learner year, slow and steady study pays off. You might actually finish that course you bookmarked.",
+      "A well-supported year. You grow as much as you ask, so remember: there are no dumb questions."
+    ]
+  },
+  "branch": {
+    "liuhe": [
+      "This year's energy clicks with your chart like a matched pair. Great connection luck: the right team and the right people click into place.",
+      "A harmony year. Pull out that collaboration idea you shelved; someone's ready to shake on it."
+    ],
+    "sanhe": [
+      "This year's energy teams up with your chart. Energies line up in one direction and big projects pick up momentum.",
+      "A year when the energies line up: those scattered side projects may finally connect into one."
+    ],
+    "chong": [
+      "This year's energy clashes head-on with your chart. Expect change: new job, new city, big migration. Back up first!",
+      "A clash year. Things get shaken up, but that makes it a great time to clean house and start fresh."
+    ],
+    "xing": [
+      "This year's energy rubs against your chart a little. Small mistakes tend to repeat, so trust your checklists and automation.",
+      "A year that makes it easy to push yourself too hard. Put vacation into the sprint plan, too."
+    ],
+    "none": [
+      "This year's energy doesn't bump into your chart at all. A year with no big variables, just your own pace.",
+      "A quiet year. Things should run fine on the default config."
+    ]
+  },
+  "reality": {
+    "up": [
+      "Your public contributions are up {{pct}}% from this point last year. Looks like the luck made it all the way to your fingertips.",
+      "Your lawn is getting lush: {{pct}}% more contributions than the same stretch last year. Your fortune and your keyboard are pointing the same way."
+    ],
+    "down": [
+      "Public contributions vs. this point last year: {{pct}}%. Either you're saving your luck, or you're quietly crushing it in private repos.",
+      "Your public graph is calmer than last year ({{pct}}%). Even fields need a fallow season, and the next one will grow back greener."
+    ],
+    "flat": [
+      "Almost exactly the same public contributions as this point last year ({{pct}}% change). Consistency like that belongs in a CI pipeline.",
+      "Same rhythm as last year ({{pct}}% change). Steady is its own kind of lucky."
+    ],
+    "none": [
+      "No public contributions last year or this year yet. Your fortune is all set, just waiting on that first commit.",
+      "Nothing public to compare yet. If you're out there doing great work in private repos, that's a fine destiny too."
+    ]
+  }
+}

@@ -25,5 +25,5 @@ Closes #
 
 - [ ] `npm test`, `npm run lint` and `npm run check:locales` pass
 - [ ] Tests are added or updated for changed behavior
-- [ ] New or changed text lives in `locales/`, follows the [style guide](https://github.com/Jiseoup/gitfate/blob/main/CONTRIBUTING.md#style-guide), and shows no hanja
+- [ ] New or changed text lives in `locales/`, follows the [style guide](https://github.com/Jiseoup/gitfate/blob/main/CONTRIBUTING.md#style-guide)
 - [ ] Nothing ranks or grades people, and no private GitHub data is read

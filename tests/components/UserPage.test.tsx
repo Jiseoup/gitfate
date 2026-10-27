@@ -38,7 +38,7 @@ const text = () => document.body.textContent ?? '';
 test('ko page renders every section in order, with the disclaimer', async () => {
   await renderPage('ko');
   const headings = screen.getAllByRole('heading', { level: 2 }).map((h) => h.textContent);
-  expect(headings).toEqual(['타고난 사주', '오늘의 운세', '올해 운세', '개발 궁합']);
+  expect(headings).toEqual(['타고난 사주', '오늘의 운세', '올해 운세', '개발 궁합', 'README에 붙이기']);
   expect(screen.getByRole('heading', { level: 1 }).textContent).toBe('Ji Seoup');
   expect(text()).toContain('개발자 탄생: 2015년 3월 4일 14:06 (UTC+9) · 깃허브 나이 11살');
   expect(text()).toContain('가입 무렵 첫 커밋들의 시간대(UTC+9)로 풀이했어요');
@@ -62,7 +62,7 @@ test('ko page renders every section in order, with the disclaimer', async () => 
 test('en page renders in English', async () => {
   await renderPage('en');
   const headings = screen.getAllByRole('heading', { level: 2 }).map((h) => h.textContent);
-  expect(headings).toEqual(['Birth chart', "Today's fortune", 'This year', 'Dev compatibility']);
+  expect(headings).toEqual(['Birth chart', "Today's fortune", 'This year', 'Dev compatibility', 'Add to your README']);
   expect(text()).toContain('Developer born: March 4, 2015 at 14:06 (UTC+9)');
   expect(text()).toContain('2026: Year of The Sun (from Feb 4)Red Horse');
   expect(text()).toContain('(UTC+9) · GitHub age 11');
@@ -79,7 +79,7 @@ test('activity null hides contribution overlay and reality line, keeps natal and
   expect(text()).toContain('활동 기록을 불러오지 못해서 일부 내용은 숨겼어요');
   expect(text()).not.toContain('실제 기여');
   expect(text()).not.toContain('작년 이맘때');
-  expect(screen.getAllByRole('heading', { level: 2 })).toHaveLength(4);
+  expect(screen.getAllByRole('heading', { level: 2 })).toHaveLength(5);
   expect(screen.getByText('배포운')).toBeTruthy();
 });
 

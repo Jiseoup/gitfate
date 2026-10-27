@@ -9,7 +9,7 @@ import { NatalCard } from '@/cards/NatalCard';
 import { YearlyCard } from '@/cards/YearlyCard';
 import { secondsUntilNextMidnight, type TzSpec } from '@/core/time';
 import { isSupportedLocale } from '@/i18n/config';
-import type { CardType } from '@/lib/card-url';
+import { parseCardTheme, type CardType } from '@/lib/card-url';
 import { isValidLogin } from '@/lib/login';
 import { buildCompatReading } from '@/reading/compat';
 import { buildUserReading } from '@/reading/user';
@@ -74,6 +74,7 @@ export async function GET(request: Request, ctx: RouteContext<'/api/card/[type]/
   const logins = parseLogins(type, parts);
   if (!logins) return error(404);
   const query = new URL(request.url).searchParams;
+  const theme = parseCardTheme(query.get('theme'));
   const now = new Date();
 
   if (type === 'compat') {
@@ -84,7 +85,7 @@ export async function GET(request: Request, ctx: RouteContext<'/api/card/[type]/
       loadAvatar(r.b.profile.avatarUrl, AVATAR_SIZE),
     ]);
     return png(
-      <CompatCard r={r} locale={locale} avatars={avatars} />,
+      <CompatCard r={r} locale={locale} avatars={avatars} theme={theme} />,
       cacheControl(now, [r.a.tz.tz, r.b.tz.tz], { type, degraded: r.degraded }),
     );
   }
@@ -93,5 +94,5 @@ export async function GET(request: Request, ctx: RouteContext<'/api/card/[type]/
   if (r.status !== 'ok') return failure(r.status);
   const avatar = await loadAvatar(r.profile.avatarUrl, AVATAR_SIZE);
   const Card = { natal: NatalCard, daily: DailyCard, yearly: YearlyCard }[type];
-  return png(<Card r={r} locale={locale} avatar={avatar} />, cacheControl(now, [r.tz.tz], { type, degraded: r.degraded }));
+  return png(<Card r={r} locale={locale} avatar={avatar} theme={theme} />, cacheControl(now, [r.tz.tz], { type, degraded: r.degraded }));
 }

@@ -5,6 +5,7 @@ import { CompatCard } from '@/cards/CompatCard';
 import { DailyCard } from '@/cards/DailyCard';
 import { CARD_SIZE } from '@/cards/Frame';
 import { NatalCard } from '@/cards/NatalCard';
+import { CARD_THEME_NAMES } from '@/lib/card-url';
 import { YearlyCard } from '@/cards/YearlyCard';
 import { okCompat } from '../fixtures/compat-reading';
 import { okReading } from '../fixtures/user-reading';
@@ -45,6 +46,16 @@ test('every card renders to a 1200×630 PNG, with and without avatars and activi
     expectPng(await render(<YearlyCard r={r} locale={locale} avatar={null} />));
     expectPng(await render(<YearlyCard r={org} locale={locale} avatar={null} />));
     expectPng(await render(<CompatCard r={okCompat()} locale={locale} avatars={[tiny, null]} />));
+  }
+}, 60000);
+
+test('every card renders in every theme', async () => {
+  const r = okReading({ withActivity: true });
+  for (const theme of CARD_THEME_NAMES) {
+    expectPng(await render(<NatalCard r={r} locale="en" avatar={null} theme={theme} />));
+    expectPng(await render(<DailyCard r={r} locale="ko" avatar={null} theme={theme} />));
+    expectPng(await render(<YearlyCard r={r} locale="en" avatar={null} theme={theme} />));
+    expectPng(await render(<CompatCard r={okCompat()} locale="ko" avatars={[null, null]} theme={theme} />));
   }
 }, 60000);
 

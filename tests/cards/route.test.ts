@@ -189,3 +189,12 @@ test('card copy uses the same variant seeds as the pages', async () => {
   const vars: Record<string, string> = c.result.flow === 'same' ? { a: 'Ji Seoup', b: 'Torvalds' } : { giver, receiver };
   expect(compat).toContain(tc(`compat.flow.${c.result.flow}`, vars));
 });
+
+test('?theme= picks the card theme; an unknown theme falls back to the default', async () => {
+  const themeOf = async (path: string) => (((await get(path)) as Rendered).element.props as { theme?: string }).theme;
+  expect(await themeOf('natal/ko/jiseoup.png?theme=github-dark')).toBe('github-dark');
+  expect(await themeOf('daily/en/jiseoup.png?theme=dark')).toBe('dark');
+  expect(await themeOf('compat/ko/a/b.png?theme=github-light')).toBe('github-light');
+  expect(await themeOf('natal/ko/jiseoup.png?theme=neon')).toBe('light');
+  expect(await themeOf('natal/ko/jiseoup.png')).toBe('light');
+});

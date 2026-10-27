@@ -82,5 +82,20 @@
   },
   "born": "Developer born: {{datetime}} ({{label}})",
   "joined": "Joined {{date}}",
-  "githubAge": "GitHub age {{age}}"
+  "githubAge": "GitHub age {{age}}",
+  "embed": {
+    "title": "Add to your README",
+    "card": "Card",
+    "theme": "Theme",
+    "hint": "Paste it into your GitHub profile README (the repository named after your username) or any project README. \"Auto\" follows the reader's GitHub light or dark mode.",
+    "copy": "Copy code",
+    "copyFailed": "Couldn't copy. Select the code above and copy it yourself.",
+    "themeName": {
+      "auto": "Auto (follows GitHub light/dark)",
+      "light": "Default",
+      "dark": "Dark",
+      "github-light": "GitHub light",
+      "github-dark": "GitHub dark"
+    }
+  }
 }

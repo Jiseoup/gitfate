@@ -82,5 +82,20 @@
   },
   "born": "개발자 탄생: {{datetime}} ({{label}})",
   "joined": "{{date}} 가입",
-  "githubAge": "깃허브 나이 {{age}}살"
+  "githubAge": "깃허브 나이 {{age}}살",
+  "embed": {
+    "title": "README에 붙이기",
+    "card": "카드",
+    "theme": "테마",
+    "hint": "GitHub 프로필 README(아이디와 같은 이름의 저장소)나 프로젝트 README에 붙여 넣으세요. '자동'은 보는 사람의 GitHub 라이트/다크 모드에 맞춰 바뀌어요.",
+    "copy": "코드 복사",
+    "copyFailed": "복사하지 못했어요. 위 코드를 직접 선택해서 복사해 주세요.",
+    "themeName": {
+      "auto": "자동 (GitHub 라이트/다크 따라가기)",
+      "light": "기본",
+      "dark": "다크",
+      "github-light": "GitHub 라이트",
+      "github-dark": "GitHub 다크"
+    }
+  }
 }

@@ -9,6 +9,7 @@ import { ElementBars } from '@/components/ElementBars';
 import { formatShortDay, fullYears } from '@/components/format';
 import { PillarChip } from '@/components/PillarChip';
 import { PillarTable } from '@/components/PillarTable';
+import { ReadmeEmbed } from '@/components/ReadmeEmbed';
 import { RoleTag } from '@/components/RoleTag';
 import { ShareButtons } from '@/components/ShareButtons';
 import { SignTile } from '@/components/SignTile';
@@ -21,6 +22,7 @@ import { isSupportedLocale } from '@/i18n/config';
 import { createT, type T } from '@/i18n/messages';
 import { sizedAvatarUrl } from '@/lib/avatar-url';
 import { cardPath } from '@/lib/card-url';
+import { siteUrl } from '@/lib/site-url';
 import { pickerCountries } from '@/reading/countries';
 import { buildUserReading, type UserReading } from '@/reading/user';
 
@@ -271,6 +273,30 @@ export default async function UserPage({ params, searchParams }: PageProps<'/[lo
           placeholder={t('ui.compat.placeholder')}
           cta={t('ui.compat.cta')}
           invalidText={t('ui.error.invalidLogin')}
+        />
+      </Section>
+      <Section title={t('ui.embed.title')}>
+        <ReadmeEmbed
+          origin={siteUrl().origin}
+          locale={locale}
+          login={login}
+          tz={tzQuery(r)?.tz}
+          labels={{
+            card: t('ui.embed.card'),
+            theme: t('ui.embed.theme'),
+            types: { natal: t('ui.section.natal'), daily: t('ui.section.daily'), yearly: t('ui.section.yearly') },
+            themes: {
+              auto: t('ui.embed.themeName.auto'),
+              light: t('ui.embed.themeName.light'),
+              dark: t('ui.embed.themeName.dark'),
+              'github-light': t('ui.embed.themeName.github-light'),
+              'github-dark': t('ui.embed.themeName.github-dark'),
+            },
+            hint: t('ui.embed.hint'),
+            copy: t('ui.embed.copy'),
+            copied: t('ui.share.copied'),
+            copyFailed: t('ui.embed.copyFailed'),
+          }}
         />
       </Section>
       <ShareButtons

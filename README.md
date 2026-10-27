@@ -24,17 +24,30 @@ Open `https://gitfate.vercel.app/en/<your-login>` (or `/ko/...` for Korean). No 
 | `/api/card/{natal,daily,yearly}/<locale>/<login>.png` | 1200×630 share card |
 | `/api/card/compat/<locale>/<a>/<b>.png` | Compatibility card |
 
+Card URLs take `?theme=light|dark|github-light|github-dark`.
+
 Add `?tz=<IANA time zone>` (for example `?tz=Asia/Seoul` or `?tz=Europe/Berlin`) to read a chart in a time zone you choose. Compatibility URLs take `?tzA=` and `?tzB=`, one per person. The same query works on the card URLs, and shared links keep it, so everyone sees the same result.
 
 Cards are also used as the Open Graph preview images for shared links.
 
 ### Put your card in your README
 
+The "Add to your README" section on your reading page builds the code for you. By hand:
+
 ```markdown
 ![my gitfate](https://gitfate.vercel.app/api/card/natal/en/<your-login>.png)
 ```
 
 Use `ko` instead of `en` for Korean, or `daily` instead of `natal` for a card that changes every day.
+
+Add `?theme=` to pick a card theme: `light` (default), `dark`, `github-light` or `github-dark`. To follow the reader's GitHub light or dark mode automatically:
+
+```html
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://gitfate.vercel.app/api/card/daily/en/<your-login>.png?theme=github-dark">
+  <img alt="my gitfate" src="https://gitfate.vercel.app/api/card/daily/en/<your-login>.png?theme=github-light">
+</picture>
+```
 
 ## How your birth time zone is decided
 

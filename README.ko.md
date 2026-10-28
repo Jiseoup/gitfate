@@ -8,10 +8,10 @@ gitfate는 GitHub에 가입한 순간을 개발자로 태어난 시각으로 보
 
 **바로 보기: [gitfate.vercel.app](https://gitfate.vercel.app/ko)**. 로그인도, 설치도 필요 없어요.
 
-<a href="https://gitfate.vercel.app/ko/Jiseoup">
+<a href="https://gitfate.vercel.app/ko/octocat">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://gitfate.vercel.app/api/card/natal/ko/Jiseoup.png?theme=github-dark">
-    <img alt="gitfate 타고난 사주 카드" src="https://gitfate.vercel.app/api/card/natal/ko/Jiseoup.png?theme=github-light">
+    <source media="(prefers-color-scheme: dark)" srcset="https://gitfate.vercel.app/api/card/natal/ko/octocat.png?theme=github-dark">
+    <img alt="gitfate 타고난 사주 카드" src="https://gitfate.vercel.app/api/card/natal/ko/octocat.png?theme=github-light">
   </picture>
 </a>
 

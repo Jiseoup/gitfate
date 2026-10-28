@@ -10,8 +10,8 @@
     "submit": "Read my fate",
     "headline": "Your dev destiny was written the second you signed up for GitHub",
     "lead": "We take your signup time as your birth time, read it with the traditional Korean almanac, and tell you which of ten Dev Signs you are, in developer memes. No login, no install. Just a username.",
-    "placeholder": "e.g. torvalds",
-    "examples": "Peek at some famous developers' Signs"
+    "placeholder": "e.g. octocat",
+    "examples": "See some examples"
   },
   "section": {
     "natal": "Birth chart",

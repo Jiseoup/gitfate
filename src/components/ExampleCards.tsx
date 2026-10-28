@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { cardPath } from '@/lib/card-url';
 
-export const EXAMPLE_LOGINS = ['torvalds', 'gaearon', 'sindresorhus', 'yyx990803'];
+// The maintainer's own account and GitHub's demo account, so no one appears here without asking.
+export const EXAMPLE_LOGINS = ['Jiseoup', 'octocat'];
 
-/** Famous developers' natal cards, each linking to their reading. */
+/** Example natal cards, each linking to its reading. */
 export function ExampleCards({ locale, heading }: { locale: string; heading: string }) {
   return (
     <section aria-labelledby="examples-heading" className="w-full space-y-3">

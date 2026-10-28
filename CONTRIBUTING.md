@@ -1,6 +1,6 @@
 # Contributing to gitfate
 
-gitfate reads a developer's saju (Korean Four Pillars) from the time they signed up for GitHub. It is just for fun. Contributions that keep it fun, kind, and accurate are welcome.
+gitfate reads a developer's horoscope (사주 in Korean) from the time they signed up for GitHub, using the traditional East Asian almanac. It is just for fun. Contributions that keep it fun, kind, and accurate are welcome.
 
 ## Adding a new language
 
@@ -38,6 +38,7 @@ Every language uses the same concept and the same pictures; only the words chang
 ### Style guide
 
 - Main copy uses the Dev Sign vocabulary (Sign, today's role, your chart), not saju jargon. Korean may still say "사주" when explaining.
+- English never uses romanized saju terms ("saju", "Day Master", "Ten Gods", "Lichun"). Say "horoscope", "birth chart", "fortune" or "the ancient almanac" instead. A test checks the word "saju".
 - Tone: developer-meme humor. Laugh with developers, never at them. No mocking, no insults, no ranking people. Scores attach to luck only, never to a person.
 - Always keep the disclaimer in `ui.disclaimer` clear that this is for fun and says nothing about developer skill.
 

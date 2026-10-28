@@ -249,3 +249,10 @@ for (const locale of LOCALES) {
     expect(withHan).toEqual([]);
   });
 }
+
+test('en: no value says "saju" (English says horoscope or almanac)', () => {
+  const withSaju = strings(MESSAGES.en)
+    .filter(([, text]) => /saju/i.test(text))
+    .map(([key]) => key);
+  expect(withSaju).toEqual([]);
+});

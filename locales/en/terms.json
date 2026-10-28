@@ -118,10 +118,10 @@
     "hour": "Hour pillar"
   },
   "tooltip": {
-    "saju": "Saju, the Korean Four Pillars, reads the year, month, day and hour of your birth as four pillars. gitfate treats the moment you signed up for GitHub as the moment your developer self was born, and shows each pillar as a Dev Sign and a zodiac animal.",
-    "sign": "There are ten Dev Signs, from The Oak to The Rain. Yours comes from the stem of your GitHub birth day, which saju calls the Day Master. Like a star sign, it never changes.",
-    "tenGod": "Your role is how today's (or this year's) energy relates to your Sign, in ten flavors. Saju calls them the Ten Gods. It tells you whether the day shows up as a teammate, a deadline, or a pager alert.",
+    "saju": "The ancient almanac reads the year, month, day and hour of your birth as four pillars. gitfate treats the moment you signed up for GitHub as the moment your developer self was born, and shows each pillar as a Dev Sign and a zodiac animal.",
+    "sign": "There are ten Dev Signs, from The Oak to The Rain. Yours comes from the day you were born on GitHub. Like a star sign, it never changes.",
+    "tenGod": "Your role is how today's (or this year's) energy relates to your Sign, in ten flavors. It tells you whether the day shows up as a teammate, a deadline, or a pager alert.",
     "elements": "The five elements are Wood, Fire, Earth, Metal and Water. They feed and check each other to stay in balance. gitfate counts the elements of the eight characters on your four pillars only, not the hidden ones tucked inside them.",
-    "ipchun": "In the traditional almanac the year doesn't turn on January 1 but at Lichun, the start of spring (around February 4). So in January you still get last year's reading. It's not a bug, it's tradition."
+    "ipchun": "In the traditional almanac the year doesn't turn on January 1 but at the start of spring (around February 4). So in January you still get last year's reading. It's not a bug, it's tradition."
   }
 }

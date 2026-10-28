@@ -14,7 +14,7 @@ afterEach(() => {
 
 function show() {
   vi.mocked(useRouter).mockReturnValue({ push } as unknown as ReturnType<typeof useRouter>);
-  render(<HomeSearch locale="ko" label="아이디" placeholder="예: torvalds" cta="보기" invalidText="잘못된 아이디" />);
+  render(<HomeSearch locale="ko" label="아이디" placeholder="예: octocat" cta="보기" invalidText="잘못된 아이디" />);
 }
 
 test('a valid login goes to its reading', async () => {
@@ -33,11 +33,6 @@ test('an invalid login shows the error and does not navigate', async () => {
 test('example cards link to the reading and show the natal card image', () => {
   render(<ExampleCards locale="en" heading="Peek" />);
   const links = screen.getAllByRole('link');
-  expect(links.map((a) => a.getAttribute('href'))).toEqual([
-    '/en/torvalds',
-    '/en/gaearon',
-    '/en/sindresorhus',
-    '/en/yyx990803',
-  ]);
-  expect(screen.getByAltText('gaearon').getAttribute('src')).toBe('/api/card/natal/en/gaearon.png');
+  expect(links.map((a) => a.getAttribute('href'))).toEqual(['/en/Jiseoup', '/en/octocat']);
+  expect(screen.getByAltText('octocat').getAttribute('src')).toBe('/api/card/natal/en/octocat.png');
 });

@@ -174,5 +174,5 @@ test('element ties read naturally: "·" in Korean, a list in English; the role h
   cleanup();
   await renderPage('en');
   expect(text()).toMatch(/Your chart (runs lightest|is quiet) on Fire and Water\./);
-  expect(text()).toContain('Saju calls them the Ten Gods.');
+  expect(text()).toContain('in ten flavors. It tells you whether the day shows up as a teammate');
 });

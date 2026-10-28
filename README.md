@@ -4,7 +4,7 @@
 
 Your dev destiny, read from your GitHub birthday.
 
-gitfate takes the moment you signed up for GitHub as your developer birth time, reads it like a saju (the Korean Four Pillars fortune), and tells you which of ten Dev Signs you are, from The Oak to The Rain. Daily and yearly fortunes and developer compatibility come with it, all in developer memes. Just for fun, in English and Korean.
+gitfate is your dev horoscope. It takes the moment you signed up for GitHub as your developer birth time, reads it with the ancient almanac, and tells you which of ten Dev Signs you are, from The Oak to The Rain. Daily and yearly fortunes and developer compatibility come with it, all in developer memes. Just for fun, in English and Korean.
 
 **Try it: [gitfate.vercel.app](https://gitfate.vercel.app)**. No sign-in, nothing to install.
 
@@ -21,7 +21,7 @@ Open `https://gitfate.vercel.app/en/<your-login>` (or `/ko/<your-login>` for Kor
 
 - **Birth chart**: your Dev Sign ("<your name> is The Jewel"), your GitHub join date and GitHub age, the four pillars of your signup time as Sign icons in five-element colors, and your zodiac animal.
 - **Today's fortune**: a luck score, today's role (The Test Guardian, The Incident Commander, ...), deploy / debug / review / merge stars, and what the ancient almanac says is good for and best avoided, translated into dev activities. It changes at your local midnight.
-- **This year**: the year's Sign and role, and month-by-month luck next to your real contributions. A saju year starts at the start of spring (around February 4), not January 1.
+- **This year**: the year's Sign and role, and month-by-month luck next to your real contributions. Here a year starts at the start of spring (around February 4), not January 1.
 - **Dev compatibility**: `/<locale>/<a>/vs/<b>` scores two developers and suggests who writes and who reviews.
 
 ## Put your card in your README
@@ -66,7 +66,7 @@ Shared links keep the query, so everyone sees the same result. Cards are also th
 
 ## How your birth time zone is decided
 
-Saju uses the local time of birth, but GitHub stores the signup time only in UTC. The time zone is picked in this order:
+The almanac reads your local time of birth, but GitHub stores the signup time only in UTC. The time zone is picked in this order:
 
 1. `?tz=` in the URL, if it is a valid IANA name (this is what the **Change birth country** picker sets).
 2. The most common UTC offset among up to 5 of your own public commits from the first 90 days after signup.

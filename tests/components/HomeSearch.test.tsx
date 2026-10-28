@@ -33,6 +33,11 @@ test('an invalid login shows the error and does not navigate', async () => {
 test('example cards link to the reading and show the natal card image', () => {
   render(<ExampleCards locale="en" heading="Peek" />);
   const links = screen.getAllByRole('link');
-  expect(links.map((a) => a.getAttribute('href'))).toEqual(['/en/Jiseoup', '/en/octocat']);
-  expect(screen.getByAltText('octocat').getAttribute('src')).toBe('/api/card/natal/en/octocat.png');
+  expect(links.map((a) => a.getAttribute('href'))).toEqual([
+    '/en/torvalds',
+    '/en/gvanrossum',
+    '/en/karpathy',
+    '/en/yyx990803',
+  ]);
+  expect(screen.getByAltText('karpathy').getAttribute('src')).toBe('/api/card/natal/en/karpathy.png');
 });

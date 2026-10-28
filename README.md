@@ -8,10 +8,10 @@ gitfate is your dev horoscope. It takes the moment you signed up for GitHub as y
 
 **Try it: [gitfate.vercel.app](https://gitfate.vercel.app)**. No sign-in, nothing to install.
 
-<a href="https://gitfate.vercel.app/en/Jiseoup">
+<a href="https://gitfate.vercel.app/en/octocat">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://gitfate.vercel.app/api/card/natal/en/Jiseoup.png?theme=github-dark">
-    <img alt="gitfate birth chart card" src="https://gitfate.vercel.app/api/card/natal/en/Jiseoup.png?theme=github-light">
+    <source media="(prefers-color-scheme: dark)" srcset="https://gitfate.vercel.app/api/card/natal/en/octocat.png?theme=github-dark">
+    <img alt="gitfate birth chart card" src="https://gitfate.vercel.app/api/card/natal/en/octocat.png?theme=github-light">
   </picture>
 </a>
 

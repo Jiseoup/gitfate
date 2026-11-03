@@ -22,7 +22,8 @@ A just-for-fun web app that reads a developer's saju (Korean Four Pillars fortun
 - `src/icons/` — the Dev Sign and five-element SVG icons, shared by web pages and share cards (Satori-safe SVG only).
 - `src/app/` — Next.js routes (pages, API routes, share card images).
 - `data/` — static data files.
-- `scripts/` — locale tools (generate and check locale files).
+- `assets/fonts/` — share card fonts, built by `scripts/build-card-fonts.py` (Noto Sans KR, OFL).
+- `scripts/` — locale tools (generate and check locale files) and the card font builder.
 - `tests/` — mirrors `src/` (`tests/core/` for `src/core/`, and so on). `tests/components/` runs in jsdom; everything else runs in node.
 
 ## Commands

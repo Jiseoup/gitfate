@@ -1,60 +1,60 @@
 import { afterEach, expect, test, vi } from 'vitest';
-import { cardText, loadCardFonts } from '@/cards/fonts';
+import { ImageResponse } from 'next/og';
+import { CARD_SIZE } from '@/cards/Frame';
+import { NatalCard } from '@/cards/NatalCard';
+import { okReading } from '../fixtures/user-reading';
 
 afterEach(() => {
   vi.unstubAllGlobals();
   vi.restoreAllMocks();
+  vi.resetModules();
 });
 
-const css = (family: string) =>
-  `@font-face { font-family: '${family}'; src: url(https://fonts.gstatic.com/l/font?kit=${family.replaceAll(' ', '')}) format('truetype'); }`;
+test('loads Noto Sans KR 400 and 700 from assets/fonts once, returning the same array every time', async () => {
+  const fetchMock = vi.fn();
+  vi.stubGlobal('fetch', fetchMock);
+  const { loadCardFonts } = await import('@/cards/fonts');
+  const fonts = await loadCardFonts();
+  expect(fonts.map((f) => [f.name, f.weight, f.style])).toEqual([
+    ['Noto Sans KR', 400, 'normal'],
+    ['Noto Sans KR', 700, 'normal'],
+  ]);
+  for (const f of fonts) expect(f.data.byteLength).toBeGreaterThan(100_000);
+  // Same array, so the renderer's parsed-font cache (keyed by array identity) hits.
+  expect(await loadCardFonts()).toBe(fonts);
+  expect(fetchMock).not.toHaveBeenCalled();
+});
 
-test('requests only the glyphs in the text from Noto Sans KR, cached for 30 days', async () => {
-  const fetchMock = vi.fn(async (input: string | URL) => {
-    const url = String(input);
-    if (url.startsWith('https://fonts.googleapis.com/')) return new Response(css('Noto Sans KR'));
-    return new Response(new Uint8Array([1, 2, 3]));
+test('a card renders with the bundled fonts', async () => {
+  // Offline: every glyph on the card must come from the bundled fonts, not the renderer's own lookup.
+  const fetchMock = vi.fn(async (url: string | URL) => {
+    throw new Error(`offline: ${String(url).slice(0, 40)}`);
   });
   vi.stubGlobal('fetch', fetchMock);
-
-  const fonts = await loadCardFonts('Merge 머지 머지');
-  expect(fonts.map((f) => [f.name, f.weight])).toEqual([
-    ['Noto Sans KR', 400],
-    ['Noto Sans KR', 700],
-  ]);
-  expect(fonts[0].data.byteLength).toBe(3);
-
-  const cssUrls = fetchMock.mock.calls.map(([u]) => String(u)).filter((u) => u.includes('googleapis'));
-  const textOf = (u: string) => new URL(u).searchParams.get('text');
-  expect(cssUrls[0]).toContain('family=Noto+Sans+KR:wght@400');
-  // Distinct characters, sorted, plus the ellipsis Satori draws when it clamps text.
-  expect(textOf(cssUrls[0])).toBe(Array.from(' Megr머지…').sort().join(''));
-  expect(cssUrls[1]).toContain('family=Noto+Sans+KR:wght@700');
-  expect(cssUrls).toHaveLength(2);
-  for (const [, init] of fetchMock.mock.calls as unknown as [string, RequestInit][]) {
-    expect(init.next).toEqual({ revalidate: 2592000 });
+  const { loadCardFonts } = await import('@/cards/fonts');
+  for (const locale of ['ko', 'en']) {
+    const element = <NatalCard r={okReading({ withActivity: true })} locale={locale} avatar={null} />;
+    const res = new ImageResponse(element, { ...CARD_SIZE, fonts: await loadCardFonts() });
+    const bytes = new Uint8Array(await res.arrayBuffer());
+    expect([...bytes.slice(1, 4)]).toEqual([0x50, 0x4e, 0x47]);
   }
-});
+  // The renderer loads its own engine through data: URLs; nothing goes over the network.
+  const network = fetchMock.mock.calls.map(([url]) => String(url)).filter((url) => /^https?:/.test(url));
+  expect(network).toEqual([]);
+}, 30000);
 
-test('a font that fails to load is left out and logged; the rest still load', async () => {
-  vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
-    const url = String(input);
-    if (url.includes('wght@700')) return new Response('nope', { status: 500 });
-    if (url.startsWith('https://fonts.googleapis.com/')) return new Response(css('Noto Sans KR'));
-    return new Response(new Uint8Array([1]));
-  }));
+test('unreadable font files are logged and give no fonts; the next call tries again', async () => {
+  vi.doMock('node:fs/promises', () => ({ readFile: vi.fn().mockRejectedValue(new Error('ENOENT')) }));
   const log = vi.spyOn(console, 'error').mockImplementation(() => {});
-  const fonts = await loadCardFonts('gitfate');
-  expect(fonts.map((f) => [f.name, f.weight])).toEqual([['Noto Sans KR', 400]]);
-  expect(log).toHaveBeenCalledTimes(1);
-
-  vi.stubGlobal('fetch', vi.fn(async () => {
-    throw new TypeError('fetch failed');
-  }));
-  expect(await loadCardFonts('gitfate')).toEqual([]);
+  const { loadCardFonts } = await import('@/cards/fonts');
+  expect(await loadCardFonts()).toEqual([]);
+  expect(await loadCardFonts()).toEqual([]);
+  expect(log).toHaveBeenCalledTimes(2);
+  vi.doUnmock('node:fs/promises');
 });
 
-test('cardText collects strings through nested components', () => {
+test('cardText collects strings through nested components', async () => {
+  const { cardText } = await import('@/cards/fonts');
   function Name({ who }: { who: string }) {
     return <b>{`@${who}`}</b>;
   }

@@ -1,12 +1,14 @@
+import { readFile } from 'node:fs/promises';
+import { join } from 'node:path';
 import { isValidElement, type ReactNode } from 'react';
 
 export interface CardFont {
   name: string;
-  data: ArrayBuffer;
+  data: Buffer;
   weight: 400 | 700;
+  style: 'normal';
 }
 
-const FONT_REVALIDATE = 2592000;
 const KR = 'Noto Sans KR';
 
 /** Every string a card renders, in order, walking through function components (cards use no hooks). */
@@ -22,46 +24,33 @@ export function cardText(node: ReactNode): string {
   return '';
 }
 
-/** Satori draws this when it clamps a line, so it must be in the subset even though no text contains it. */
-const ELLIPSIS = '\u2026';
-
-/** Distinct characters, sorted, so the same glyph set always makes the same (cached) request. */
-function glyphSet(text: string): string {
-  return [...new Set(Array.from(`${text.replace(/\s+/g, ' ')}${ELLIPSIS}`))].sort().join('');
+async function readFonts(): Promise<CardFont[]> {
+  // Literal paths so the build traces both files into the card function.
+  const [regular, bold] = await Promise.all([
+    readFile(join(process.cwd(), 'assets/fonts/NotoSansKR-400.ttf')),
+    readFile(join(process.cwd(), 'assets/fonts/NotoSansKR-700.ttf')),
+  ]);
+  return [
+    { name: KR, data: regular, weight: 400, style: 'normal' },
+    { name: KR, data: bold, weight: 700, style: 'normal' },
+  ];
 }
 
-async function fetchFont(family: string, weight: number, text: string): Promise<ArrayBuffer> {
-  const css = await fetch(
-    `https://fonts.googleapis.com/css2?family=${family.replaceAll(' ', '+')}:wght@${weight}&text=${encodeURIComponent(text)}`,
-    { next: { revalidate: FONT_REVALIDATE } },
-  );
-  if (!css.ok) throw new Error(`CSS ${css.status}`);
-  const src = /src: url\(([^)]+)\) format\('(?:opentype|truetype)'\)/.exec(await css.text())?.[1];
-  if (!src) throw new Error('no TrueType source in CSS');
-  const font = await fetch(src, { next: { revalidate: FONT_REVALIDATE } });
-  if (!font.ok) throw new Error(`font ${font.status}`);
-  return font.arrayBuffer();
-}
+let loaded: Promise<CardFont[]> | null = null;
 
 /**
- * Subset fonts with only the glyphs in `text`: Noto Sans KR 400 and 700. A font that fails to load is logged and left out; the card still renders with
- * whatever loaded (or, with nothing, the renderer's own fallback fonts).
+ * Noto Sans KR 400 and 700 from assets/fonts (built by scripts/build-card-fonts.py: common Hangul, Latin and every
+ * character in locales/), read once per server instance. Every call returns the same array, because the renderer
+ * caches parsed fonts by array identity. Characters outside the set (rare Hangul, hanja, kana) are fetched by the
+ * renderer itself. If the files can't be read, this logs, returns [] and tries again on the next card.
  */
-export async function loadCardFonts(text: string): Promise<CardFont[]> {
-  const glyphs = glyphSet(text);
-  const wanted: { name: string; weight: 400 | 700; text: string }[] = [
-    { name: KR, weight: 400, text: glyphs },
-    { name: KR, weight: 700, text: glyphs },
-  ];
-  const settled = await Promise.allSettled(wanted.map((f) => fetchFont(f.name, f.weight, f.text)));
-  const fonts: CardFont[] = [];
-  settled.forEach((result, i) => {
-    const { name, weight } = wanted[i];
-    if (result.status === 'fulfilled') fonts.push({ name, weight, data: result.value });
-    else {
-      const e = result.reason;
-      console.error(`[gitfate] card font ${name} ${weight} failed: ${e instanceof Error ? e.message : String(e)}`);
-    }
-  });
-  return fonts;
+export async function loadCardFonts(): Promise<CardFont[]> {
+  loaded ??= readFonts();
+  try {
+    return await loaded;
+  } catch (e) {
+    loaded = null;
+    console.error(`[gitfate] card fonts failed: ${e instanceof Error ? e.message : String(e)}`);
+    return [];
+  }
 }

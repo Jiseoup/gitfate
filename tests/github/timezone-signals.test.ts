@@ -1,7 +1,7 @@
 import { beforeEach, expect, test, vi } from 'vitest';
 
 const cacheCalls = vi.hoisted(() => ({
-  created: [] as { keyParts: string[]; options: { revalidate?: number } }[],
+  created: [] as { source: string; keyParts: string[]; options: { revalidate?: number } }[],
   invoked: [] as unknown[][],
   /** Results the cached function returned (what Next would store); a throw stores nothing. */
   stored: [] as unknown[],
@@ -13,7 +13,7 @@ vi.mock('next/cache', () => ({
     keyParts: string[],
     options: { revalidate?: number },
   ) => {
-    cacheCalls.created.push({ keyParts, options });
+    cacheCalls.created.push({ source: fn.toString(), keyParts, options });
     return async (...args: unknown[]) => {
       cacheCalls.invoked.push(args);
       const result = await fn(...args);
@@ -207,7 +207,10 @@ test('empty or missing history yields empty signals, cached', async () => {
 test('only the derived offsets are cached, keyed by lowercased login and id for 30 days', async () => {
   mockSequence([graphqlReposWithCommits(['a1']), graphqlReposWithCommits([]), patchText('+0900', 'secret@example.com')]);
   const s = await fetchTimezoneSignals({ ...userProfile, login: 'JiSeoup' });
-  expect(cacheCalls.created).toEqual([{ keyParts: ['timezone-signals'], options: { revalidate: 2592000 } }]);
+  // A fixed source text, so every bundle (pages and the card route) shares the entry despite minified names.
+  expect(cacheCalls.created).toEqual([
+    { source: 'timezone-signals v1', keyParts: ['timezone-signals'], options: { revalidate: 2592000 } },
+  ]);
   expect(cacheCalls.invoked.at(-1)).toEqual(['jiseoup', userProfile.id, userProfile.createdAt]);
   expect(cacheCalls.stored).toEqual([{ early: [540], recent: [] }]);
   expect([...s.early, ...s.recent].every((n) => typeof n === 'number')).toBe(true);

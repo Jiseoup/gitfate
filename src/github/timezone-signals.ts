@@ -148,8 +148,19 @@ async function computeSignals(login: string, id: string, createdAt: string): Pro
   return signals;
 }
 
+/**
+ * unstable_cache keys on the function's source text, which the minifier renames differently in each bundle,
+ * so the pages and the card route would each compute and cache their own copy. A fixed text lets them share
+ * one entry. Bump the version whenever the cached result would change.
+ */
+const SIGNALS_SOURCE = 'timezone-signals v1';
+const signalsSource = Object.assign(
+  (login: string, id: string, createdAt: string) => computeSignals(login, id, createdAt),
+  { toString: () => SIGNALS_SOURCE },
+);
+
 // Only the derived offsets are cached; arguments (lowercased login, id, signup time) form the cache key.
-const cachedSignals = unstable_cache(computeSignals, ['timezone-signals'], {
+const cachedSignals = unstable_cache(signalsSource, ['timezone-signals'], {
   revalidate: SIGNALS_REVALIDATE,
 });
 

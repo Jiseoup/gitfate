@@ -54,7 +54,7 @@ test('natal card: 200 PNG, 1200×630, cached until the next local midnight', asy
   expect(res.status).toBe(200);
   expect(res.headers.get('content-type')).toBe('image/png');
   // Fixture timezone is UTC+9: 2026-10-27 12:25:41 local, 11:34:19 until midnight.
-  expect(res.headers.get('cache-control')).toBe('public, s-maxage=41659, stale-while-revalidate=3600');
+  expect(res.headers.get('cache-control')).toBe('public, s-maxage=41659, stale-while-revalidate=604800');
   expect(res.options).toMatchObject({ width: 1200, height: 630 });
   expect(vi.mocked(buildUserReading)).toHaveBeenCalledWith('jiseoup', { tzParam: null, now: fixtureNow });
 
@@ -64,8 +64,7 @@ test('natal card: 200 PNG, 1200×630, cached until the next local midnight', asy
   expect(text).toContain('gitfate');
   expect(text).toContain('Ji Seoup님은 「텃밭」 개발자');
   expect(text).toContain('재미로 보는 운세입니다. 개발 실력과는 아무 관련이 없어요.');
-  // Fonts are fetched for exactly the text on the card.
-  expect(vi.mocked(loadCardFonts)).toHaveBeenCalledWith(text);
+  expect(vi.mocked(loadCardFonts)).toHaveBeenCalledOnce();
 });
 
 test('each single-user card type renders with its own copy and the footer', async () => {
@@ -105,7 +104,7 @@ test('compat card: 200 with both people and the score, cached until the earlier 
   expect(res.headers.get('content-type')).toBe('image/png');
   expect(vi.mocked(buildCompatReading)).toHaveBeenCalledWith('a', 'b', { tzA: 'Asia/Seoul', tzB: null, now: fixtureNow });
   // Sides are UTC+9 (11:34:19 left) and UTC (20:34:19 left): the earlier one wins.
-  expect(res.headers.get('cache-control')).toBe('public, s-maxage=41659, stale-while-revalidate=3600');
+  expect(res.headers.get('cache-control')).toBe('public, s-maxage=41659, stale-while-revalidate=604800');
   const text = cardText(res.element);
   expect(text).toContain('@JiSeoup');
   expect(text).toContain('@Torvalds');
@@ -116,7 +115,7 @@ test('daily cards expire at midnight with no stale-while-revalidate', async () =
   const res = await get('daily/ko/jiseoup.png');
   expect(res.headers.get('cache-control')).toBe('public, s-maxage=41659');
   expect((await get('yearly/ko/jiseoup.png')).headers.get('cache-control')).toBe(
-    'public, s-maxage=41659, stale-while-revalidate=3600',
+    'public, s-maxage=41659, stale-while-revalidate=604800',
   );
 });
 

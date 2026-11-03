@@ -3,7 +3,7 @@ import type { ReactElement } from 'react';
 import { loadAvatar } from '@/cards/avatar';
 import { CompatCard } from '@/cards/CompatCard';
 import { DailyCard } from '@/cards/DailyCard';
-import { cardText, loadCardFonts } from '@/cards/fonts';
+import { loadCardFonts } from '@/cards/fonts';
 import { CARD_SIZE } from '@/cards/Frame';
 import { NatalCard } from '@/cards/NatalCard';
 import { YearlyCard } from '@/cards/YearlyCard';
@@ -21,6 +21,7 @@ const CARD_TYPES: readonly CardType[] = ['natal', 'daily', 'yearly', 'compat'];
 const AVATAR_SIZE = 160;
 const MIN_MAX_AGE = 60;
 const DEGRADED_MAX_AGE = 60;
+const STALE_WHILE_REVALIDATE = 604800;
 
 type Failure = 'invalid' | 'not-found' | 'blocked' | 'unavailable';
 
@@ -49,21 +50,23 @@ function parseLogins(type: CardType, parts: string[]): string[] | null {
 
 /**
  * CDN-cache until the card's date changes: the next midnight in the reading's time zone (the earliest of two).
- * Daily cards expire exactly then (no stale-while-revalidate). A degraded reading (GitHub could not answer
- * fully) may differ from the page once GitHub recovers, so it is cached only briefly.
+ * Daily cards expire exactly then (no stale-while-revalidate). The other cards barely change from one day to the
+ * next, so for a week after that the CDN serves the old card at once and redraws it in the background: only the
+ * first request for a card ever waits for it to be drawn. A degraded reading (GitHub could not answer fully) may
+ * differ from the page once GitHub recovers, so it is cached only briefly.
  */
 function cacheControl(now: Date, zones: TzSpec[], opts: { type: CardType; degraded: boolean }): string {
   if (opts.degraded) return `public, s-maxage=${DEGRADED_MAX_AGE}`;
   const seconds = Math.max(MIN_MAX_AGE, Math.min(...zones.map((tz) => secondsUntilNextMidnight(now, tz))));
-  return opts.type === 'daily' ? `public, s-maxage=${seconds}` : `public, s-maxage=${seconds}, stale-while-revalidate=3600`;
+  return opts.type === 'daily' ? `public, s-maxage=${seconds}` : `public, s-maxage=${seconds}, stale-while-revalidate=${STALE_WHILE_REVALIDATE}`;
 }
 
 async function png(element: ReactElement, cache: string): Promise<Response> {
-  const fonts = await loadCardFonts(cardText(element));
+  const fonts = await loadCardFonts();
   return new ImageResponse(element, {
     ...CARD_SIZE,
-    // With no fonts loaded, leave `fonts` unset so the renderer falls back to its own fonts.
-    fonts: fonts.length > 0 ? fonts.map((f) => ({ ...f, style: 'normal' as const })) : undefined,
+    // Passed as is: the renderer caches parsed fonts by array identity. With none, it falls back to its own fonts.
+    fonts: fonts.length > 0 ? fonts : undefined,
     headers: { 'cache-control': cache },
   });
 }

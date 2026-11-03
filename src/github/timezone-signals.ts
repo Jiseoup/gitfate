@@ -92,22 +92,26 @@ async function commitOffset(ref: CommitRef): Promise<{ offset: number | null; fa
   }
 }
 
+/** The commits a candidate query finds, or `null` when the query failed; rate limits still throw. */
+async function candidates(
+  profile: Pick<Profile, 'login' | 'id'>,
+  variables: Record<string, unknown>,
+): Promise<CommitRef[] | null> {
+  try {
+    return await listCommits(profile, variables);
+  } catch (e) {
+    if (e instanceof GitHubUnavailableError) return null;
+    throw e;
+  }
+}
+
 /**
- * One time zone rule: the offsets of the commits a candidate query finds. `settled` is false when the answer
+ * One time zone rule: the offsets of the commits a candidate query found. `settled` is false when the answer
  * may be an outage artifact: the query failed, or every commit it found failed. A step that found offsets
  * despite some failed commits is settled (those commits are usually too large to ever serve).
  */
-async function stepOffsets(
-  profile: Pick<Profile, 'login' | 'id'>,
-  variables: Record<string, unknown>,
-): Promise<{ offsets: number[]; settled: boolean }> {
-  let refs: CommitRef[];
-  try {
-    refs = await listCommits(profile, variables);
-  } catch (e) {
-    if (e instanceof GitHubUnavailableError) return { offsets: [], settled: false };
-    throw e;
-  }
+async function stepOffsets(refs: CommitRef[] | null): Promise<{ offsets: number[]; settled: boolean }> {
+  if (refs === null) return { offsets: [], settled: false };
   const results = await Promise.all(refs.map(commitOffset));
   const offsets = results.flatMap((r) => (r.offset === null ? [] : [r.offset]));
   return { offsets, settled: offsets.length > 0 || !results.some((r) => r.failed) };
@@ -125,15 +129,20 @@ async function computeSignals(login: string, id: string, createdAt: string): Pro
   const profile = { login, id };
   const since = new Date(createdAt);
   const until = new Date(since.getTime() + WINDOW_DAYS * 24 * 60 * 60 * 1000);
-  const early = await stepOffsets(profile, {
+  // Both queries take a second or two, so the recent one starts at once instead of after the early one.
+  const earlyRefs = candidates(profile, {
     field: 'CREATED_AT',
     direction: 'ASC',
     since: since.toISOString(),
     until: until.toISOString(),
   });
+  const recentRefs = candidates(profile, { field: 'PUSHED_AT', direction: 'DESC' });
+  // Unused when the early commits answer; its rate limit then must not surface as an unhandled rejection.
+  recentRefs.catch(() => {});
+  const early = await stepOffsets(await earlyRefs);
   if (early.offsets.length > 0) return { early: early.offsets, recent: [] };
-  // Rule 3: recent commits only when the early ones give no offset.
-  const recent = await stepOffsets(profile, { field: 'PUSHED_AT', direction: 'DESC' });
+  // Rule 3: recent commits (their patches) only when the early ones give no offset.
+  const recent = await stepOffsets(await recentRefs);
   const signals = { early: [], recent: recent.offsets };
   if (!early.settled || !recent.settled) throw new UnsettledSignals(signals);
   return signals;
